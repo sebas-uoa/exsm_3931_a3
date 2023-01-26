@@ -1,0 +1,55 @@
+--HUNGRY CUSTOMER PSEUDOCODE--
+
+customer_money = 20.00
+vending_machine_content = (chips: 2.00, gummy_bears: 1.50, chocolate_bar 2.00)
+vending_inventory = (chips: 5, gummy_bear: 10, chocolate_bars: 5)
+choice = ""
+change = 0
+cost = 0
+hungry = true or false
+
+IF {hungry = false OR customer_money < 1.50 
+    {THEN GOTO end}
+    {ELSE LOOK AT vending_machine_content AND vending_inventory
+        SELECT choice
+        INSERT customer_money WHILE customer_money LESS THAN cost { 
+            INSERT customer_money}
+        WAIT for choice WHILE vending machine DISPENSE choice
+        GRAB choice
+        CHECK FOR change 
+        IF change > 0 {COLLECT change AND UPDATE customer_money = customer_money + change}
+        EAT choice
+        INPUT hungry = {TRUE or FALSE}
+    }
+   }    
+END
+===========================================================================================
+--MACHINE OWNER PSEUDOCODE--
+
+money = 0
+inventory = 0
+vending_machine_cash_float = 0
+vending_machine_snacks_inventory = 0
+money_tray = ""
+lock = true
+
+
+UNLOCK vending machine {lock = false}
+EMPTY money_tray 
+COUNT money_tray UPDATE money
+COUNT vending_machine_cash_float
+IF money > 0  OR vending_machine_cash_float < 100{
+    THEN REFILL WHILE vending_machine_cash_float < 100 {
+        REFILL vending_machine_cash_float = 100}
+}
+COUNT vending_machine_snacks_inventory
+IF vending_machine_snacks_inventory < 20{
+    THEN REFILL WHILE vending_machine_snacks_inventory = 20
+}
+
+CLOSE door
+LOCK door {lock = true}
+END 
+
+
+    
